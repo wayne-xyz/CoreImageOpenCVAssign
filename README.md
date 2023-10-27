@@ -1,2 +1,2 @@
 # CoreImageOpenCVAssign
-A team assignment for core
+A team assignment for coreimage and opencv
