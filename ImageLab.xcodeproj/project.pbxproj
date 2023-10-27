@@ -17,6 +17,9 @@
 		B67B72BB1D996ADE008EDDE1 /* OpenCVBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = B67B72BA1D996ADE008EDDE1 /* OpenCVBridge.mm */; };
 		B67B72BF1D99D0AD008EDDE1 /* nose.xml in Resources */ = {isa = PBXBuildFile; fileRef = B67B72BE1D99D0AD008EDDE1 /* nose.xml */; };
 		B6885D9A2ADD73A100C11AFF /* VisionAnalgesic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6885D992ADD73A100C11AFF /* VisionAnalgesic.swift */; };
+		CC4AE3EB2AEB75D800E7973E /* ModuleA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC4AE3EA2AEB75D800E7973E /* ModuleA.storyboard */; };
+		CC4AE3ED2AEB75F800E7973E /* ModuleB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC4AE3EC2AEB75F800E7973E /* ModuleB.storyboard */; };
+		CC4AE3EF2AEB765A00E7973E /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4AE3EE2AEB765A00E7973E /* EntranceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,9 @@
 		B67B72BE1D99D0AD008EDDE1 /* nose.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = nose.xml; sourceTree = SOURCE_ROOT; };
 		B6885D992ADD73A100C11AFF /* VisionAnalgesic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionAnalgesic.swift; sourceTree = "<group>"; };
 		B6EF2FD91F7A906A00C33387 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CC4AE3EA2AEB75D800E7973E /* ModuleA.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ModuleA.storyboard; sourceTree = "<group>"; };
+		CC4AE3EC2AEB75F800E7973E /* ModuleB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ModuleB.storyboard; sourceTree = "<group>"; };
+		CC4AE3EE2AEB765A00E7973E /* EntranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +78,10 @@
 			children = (
 				B650B31A1D8340F0000114A1 /* AppDelegate.swift */,
 				B650B31C1D8340F0000114A1 /* ViewController.swift */,
+				CC4AE3EA2AEB75D800E7973E /* ModuleA.storyboard */,
+				CC4AE3EC2AEB75F800E7973E /* ModuleB.storyboard */,
 				B650B31E1D8340F0000114A1 /* Main.storyboard */,
+				CC4AE3EE2AEB765A00E7973E /* EntranceViewController.swift */,
 				B650B3211D8340F0000114A1 /* Assets.xcassets */,
 				B650B3231D8340F0000114A1 /* LaunchScreen.storyboard */,
 				B650B3261D8340F0000114A1 /* Info.plist */,
@@ -157,9 +166,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B650B34E1D834D46000114A1 /* smu-campus.jpg in Resources */,
+				CC4AE3ED2AEB75F800E7973E /* ModuleB.storyboard in Resources */,
 				B67B72BF1D99D0AD008EDDE1 /* nose.xml in Resources */,
 				B650B3251D8340F0000114A1 /* LaunchScreen.storyboard in Resources */,
 				B650B3221D8340F0000114A1 /* Assets.xcassets in Resources */,
+				CC4AE3EB2AEB75D800E7973E /* ModuleA.storyboard in Resources */,
 				B650B3201D8340F0000114A1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +186,7 @@
 				B650B31B1D8340F0000114A1 /* AppDelegate.swift in Sources */,
 				B67B72BB1D996ADE008EDDE1 /* OpenCVBridge.mm in Sources */,
 				B6885D9A2ADD73A100C11AFF /* VisionAnalgesic.swift in Sources */,
+				CC4AE3EF2AEB765A00E7973E /* EntranceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
