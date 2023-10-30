@@ -38,7 +38,7 @@ class ModuleBViewController: UIViewController {
     }
     
     
-    
+    // block for processing finger cover camera
     func processFinger(inputImage:CIImage)->CIImage{
         var returnImage=inputImage
         self.bridge.setImage(returnImage, withBounds: returnImage.extent, andContext: self.videoManager.getCIContext())
@@ -51,21 +51,27 @@ class ModuleBViewController: UIViewController {
     }
     
     
-    // use the red color for update the color chart for monitorting the red
-    func updateColorChart(inputArray: [Double] ){
-        if inputArray.count>0{
-            if let lastValue=inputArray.last {
+    // use the red color for update the color chart for mozhonitorting the red
+    func updateColorChart(inputArray: [Double] , type:Int){ //type 0 for main color , 1 for the peak
+        if inputArray.count>0 {
+            if type==0, let lastValue=inputArray.last {
                 self.colorChartView.addDataPoint(lastValue)
+            }else if type==1, let lastVaule=inputArray.last{
+                self.colorChartView.addPeakPoint(dataP: lastVaule)
             }
         }
     }
     
     
+    // check the finger cover satus for show chart
+    // and generate the hearbeat rate
     func fingerCoverDectect(coveringBoolFlag:Bool){
         // finger cover happen, turn on/off flash, avoid running everytime.
         if self.bridge.coverStatus==1{
             
-            updateColorChart(inputArray: self.bridge.redArray as! [Double])// when finger is covering the chart show the data
+            updateColorChart(inputArray: self.bridge.redArray as! [Double],type:0)// when finger is covering the chart show the data update the main color
+            findPeakArray(self.bridge.redArray.lastObject as! Double)
+            updateColorChart(inputArray: peaks, type:1)
             
             if(self.fingerFlashFlag==false){ // this is for the flash
                _ = self.videoManager.turnOnFlashwithLevel(1.0)
@@ -83,6 +89,63 @@ class ModuleBViewController: UIViewController {
         }
     }
 
+    
+    // find out the peak of the color data
+    private var windowSize = 60
+    private var currentWindow: [Double] = []
+    var peaks: [Double] = []
+    private var currentIndex = 0
+    private var lastPeakindex = -1
+    
+    func findPeakArray2(_newData:Double){
+        currentWindow.append(_newData)
+        
+        if currentWindow.count>windowSize{
+            currentWindow.removeFirst()
+        }
+        currentIndex+=1
+        
+        if currentIndex>=windowSize{
+            if let peak = currentWindow.max() ,  peak == currentWindow[windowSize/2] {
+                peaks.append(peak)
+                 // this is the peak and in the middel of
+                // 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0
+                // 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 4
+            }else{
+                peaks.append(0)
+            }
+        }else{
+            peaks.append(0)
+        }
+        
+    }
+    
+    
+    
+    func findPeakArray(_ newData: Double) {
+        currentWindow.append(newData)
+
+        if currentWindow.count > windowSize {
+            currentWindow.removeFirst()
+        }
+
+        currentIndex += 1
+
+        if currentIndex >= windowSize {
+            if let peak = currentWindow.max(), peak==newData, currentIndex-lastPeakindex>10{ // only one peak in small period
+                print(peak)
+                peaks.append(peak)
+                print("indexDif:\(currentIndex-lastPeakindex)")
+                lastPeakindex=currentIndex
+            }else{
+                peaks.append(0.0)
+            }
+        }else{
+            peaks.append(0.0)
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

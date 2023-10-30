@@ -102,7 +102,7 @@ using namespace cv;
             cv::putText(_image, text, cv::Point(0, 350), FONT_HERSHEY_PLAIN, 3, Scalar::all(255), 1, 2);
         }
           
-        if(_redArray.count==10000){ // for saving the memory caculate the 10000 then restart to save
+        if(_redArray.count==20000){ // for saving the memory caculate the 10000 then restart to save
             self.capturedFlag=true;
             [self initArrays];
         }
