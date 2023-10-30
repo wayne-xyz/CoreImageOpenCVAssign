@@ -19,17 +19,22 @@ class ModuleBViewController: UIViewController {
     
     @IBOutlet weak var cameraView: MTKView!
     
+    @IBOutlet weak var colorChartView: ColorLineChartView!  // use a custom chart view to show the color value
     
+    @IBOutlet weak var heartBeatView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //setup the OpenCV, video manager
+        //setup the OpenCV, video manager, call the block func to detect the finger cover
         self.bridge.loadHaarCascade(withFilename: "nose")
         
         self.videoManager=VisionAnalgesic(view: self.cameraView)
         self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.back)
-        // Do any additional setup after loading the view.
+        self.videoManager.setProcessingBlock(newProcessBlock: processFinger)
+        if !videoManager.isRunning{
+            videoManager.start()
+        }
     }
     
     
@@ -40,34 +45,42 @@ class ModuleBViewController: UIViewController {
         let processFingerResult=self.bridge.processFinger()
         returnImage=self.bridge.getImage()
         fingerCoverDectect(coveringBoolFlag: processFingerResult)
+        print("here is the count\(self.bridge.redArray.count) and here is the last value\(String(describing: self.bridge.redArray.lastObject))");
+      
         return returnImage
     }
     
-    func fingerCoverDectect(coveringBoolFlag:Bool){
-        if coveringBoolFlag==true{  // when something is covering disable the two button
-          
-        }else{
-         
+    
+    // use the red color for update the color chart for monitorting the red
+    func updateColorChart(inputArray: [Double] ){
+        if inputArray.count>0{
+            if let lastValue=inputArray.last {
+                self.colorChartView.addDataPoint(lastValue)
+            }
         }
-        
+    }
+    
+    
+    func fingerCoverDectect(coveringBoolFlag:Bool){
         // finger cover happen, turn on/off flash, avoid running everytime.
         if self.bridge.coverStatus==1{
-            if(self.fingerFlashFlag==false){
-                self.videoManager.turnOnFlashwithLevel(1.0)
+            
+            updateColorChart(inputArray: self.bridge.redArray as! [Double])// when finger is covering the chart show the data
+            
+            if(self.fingerFlashFlag==false){ // this is for the flash
+               _ = self.videoManager.turnOnFlashwithLevel(1.0)
                 self.fingerFlashFlag=true;
-                print("flash on.")
+                print("finger cover,flash on.")
             }
           
         }else if self.bridge.coverStatus==2{
-           
+              print("something cover rather than finger")
         }else{
             if self.fingerFlashFlag{
                 self.videoManager.turnOffFlash()
                 self.fingerFlashFlag=false;
             }
-           
         }
-        
     }
 
     /*

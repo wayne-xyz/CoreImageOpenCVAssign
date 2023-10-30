@@ -20,7 +20,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Pl-d1-SZk">
                                 <rect key="frame" x="0.0" y="179" width="393" height="639"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4i-cV-A04">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4i-cV-A04" customClass="ColorLineChartView" customModule="ImageLab" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="319.66666666666669"/>
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                     </view>
@@ -48,7 +48,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <mtkView contentMode="scaleToFill" fixedFrame="YES" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="F58-Y9-cdv">
-                                <rect key="frame" x="98" y="92" width="196" height="53"/>
+                                <rect key="frame" x="16" y="82" width="361" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mtkView>
                         </subviews>
@@ -67,11 +67,13 @@
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="F58-Y9-cdv" id="hrO-hT-KI8"/>
+                        <outlet property="colorChartView" destination="M4i-cV-A04" id="ccx-B4-aYG"/>
+                        <outlet property="heartBeatView" destination="fU5-7D-SiD" id="DqH-gg-nwc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="-9"/>
+            <point key="canvasLocation" x="6.8702290076335872" y="-9.1549295774647899"/>
         </scene>
     </scenes>
     <resources>
