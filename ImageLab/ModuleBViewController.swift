@@ -70,7 +70,7 @@ class ModuleBViewController: UIViewController {
         if self.bridge.coverStatus==1{
             
             updateColorChart(inputArray: self.bridge.redArray as! [Double],type:0)// when finger is covering the chart show the data update the main color
-            findPeakArray(self.bridge.redArray.lastObject as! Double)
+            findPeakArray(self.bridge.redArray.lastObject as! Double) //call find function
             updateColorChart(inputArray: peaks, type:1)
             
             if(self.fingerFlashFlag==false){ // this is for the flash
@@ -97,8 +97,8 @@ class ModuleBViewController: UIViewController {
     private var currentIndex = 0
     private var lastPeakindex = -1
     
-    func findPeakArray2(_newData:Double){
-        currentWindow.append(_newData)
+    func findPeakArray(_ newData:Double){
+        currentWindow.append(newData)
         
         if currentWindow.count>windowSize{
             currentWindow.removeFirst()
@@ -121,29 +121,7 @@ class ModuleBViewController: UIViewController {
     }
     
     
-    
-    func findPeakArray(_ newData: Double) {
-        currentWindow.append(newData)
-
-        if currentWindow.count > windowSize {
-            currentWindow.removeFirst()
-        }
-
-        currentIndex += 1
-
-        if currentIndex >= windowSize {
-            if let peak = currentWindow.max(), peak==newData, currentIndex-lastPeakindex>10{ // only one peak in small period
-                print(peak)
-                peaks.append(peak)
-                print("indexDif:\(currentIndex-lastPeakindex)")
-                lastPeakindex=currentIndex
-            }else{
-                peaks.append(0.0)
-            }
-        }else{
-            peaks.append(0.0)
-        }
-    }
+   
     
     
     /*

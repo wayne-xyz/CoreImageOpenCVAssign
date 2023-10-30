@@ -36,17 +36,17 @@ class ColorLineChartView: UIView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-       drawLineChart(points:dataPoints,color:UIColor.red)
-       drawLineChart(points: peaksPoints, color: UIColor.blue)
+        drawLineChart(points:dataPoints,color:UIColor.red,lineWidth: 2.0)
+        drawLineChart(points: peaksPoints, color: UIColor.blue,lineWidth: 1.0)
     }
     
     
     
     
-    func drawLineChart( points:[Double], color:UIColor) {
+    func drawLineChart( points:[Double], color:UIColor, lineWidth:CGFloat) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
 
-        context.setLineWidth(LINE_WIDTH)
+        context.setLineWidth(lineWidth)
         context.setStrokeColor(color.cgColor)
 
         let stepX = frame.size.width / CGFloat(MAX_POINTS_SHOW - 1) //
