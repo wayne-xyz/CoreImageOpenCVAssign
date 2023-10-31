@@ -22,7 +22,18 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4i-cV-A04" customClass="ColorLineChartView" customModule="ImageLab" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="319.66666666666669"/>
+                                        <subviews>
+                                            <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="F58-Y9-cdv">
+                                                <rect key="frame" x="8" y="8" width="157.33333333333334" height="303.66666666666669"/>
+                                            </mtkView>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                        <constraints>
+                                            <constraint firstItem="F58-Y9-cdv" firstAttribute="leading" secondItem="M4i-cV-A04" secondAttribute="leading" constant="8" id="ZR7-gD-p0Q"/>
+                                            <constraint firstItem="F58-Y9-cdv" firstAttribute="width" secondItem="M4i-cV-A04" secondAttribute="width" multiplier="0.4" id="igB-gr-aou"/>
+                                            <constraint firstAttribute="bottom" secondItem="F58-Y9-cdv" secondAttribute="bottom" constant="8" id="r8a-jh-P5H"/>
+                                            <constraint firstItem="F58-Y9-cdv" firstAttribute="top" secondItem="M4i-cV-A04" secondAttribute="top" constant="8" id="tjS-Y0-DuK"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fU5-7D-SiD">
                                         <rect key="frame" x="0.0" y="319.66666666666674" width="393" height="319.33333333333326"/>
@@ -33,7 +44,7 @@
                                 <constraints>
                                     <constraint firstItem="M4i-cV-A04" firstAttribute="centerX" secondItem="0Pl-d1-SZk" secondAttribute="centerX" id="4p6-Jj-sqi"/>
                                     <constraint firstItem="M4i-cV-A04" firstAttribute="top" secondItem="0Pl-d1-SZk" secondAttribute="top" id="As4-hV-MXM"/>
-                                    <constraint firstAttribute="bottom" secondItem="fU5-7D-SiD" secondAttribute="bottom" id="Iyt-i0-zB5"/>
+                                    <constraint firstAttribute="bottom" secondItem="fU5-7D-SiD" secondAttribute="bottom" id="ITI-jC-cg4"/>
                                     <constraint firstItem="fU5-7D-SiD" firstAttribute="centerX" secondItem="M4i-cV-A04" secondAttribute="centerX" id="MlV-t6-9TA"/>
                                     <constraint firstItem="M4i-cV-A04" firstAttribute="height" secondItem="0Pl-d1-SZk" secondAttribute="height" multiplier="0.5" id="kRr-Pj-EpJ"/>
                                     <constraint firstItem="fU5-7D-SiD" firstAttribute="width" secondItem="M4i-cV-A04" secondAttribute="width" id="vFs-vU-RHG"/>
@@ -41,34 +52,37 @@
                                     <constraint firstItem="M4i-cV-A04" firstAttribute="width" secondItem="0Pl-d1-SZk" secondAttribute="width" id="xV7-Bj-WHb"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="☝️ Your finger cover iPhone back camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qes-bW-j3P">
-                                <rect key="frame" x="39.333333333333343" y="153" width="314.33333333333326" height="18"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1z-Z9-YCp">
+                                <rect key="frame" x="88" y="136" width="228" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start Face Detection Mode"/>
+                                <connections>
+                                    <action selector="changeModeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HY5-0w-fSm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="☝️ Cover your finger on back camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qes-bW-j3P">
+                                <rect key="frame" x="39" y="110" width="314.33333333333326" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mtkView contentMode="scaleToFill" fixedFrame="YES" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="F58-Y9-cdv">
-                                <rect key="frame" x="16" y="82" width="173" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mtkView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0Pl-d1-SZk" firstAttribute="top" secondItem="Qes-bW-j3P" secondAttribute="bottom" constant="8" symbolic="YES" id="1e0-7H-WGO"/>
-                            <constraint firstItem="0Pl-d1-SZk" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="20" id="2Wd-PR-Wgm"/>
+                            <constraint firstItem="0Pl-d1-SZk" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="2Wd-PR-Wgm"/>
                             <constraint firstItem="0Pl-d1-SZk" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="2xc-5P-BQg"/>
                             <constraint firstItem="0Pl-d1-SZk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="GLM-LI-3Md"/>
                             <constraint firstItem="0Pl-d1-SZk" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="NLd-ZE-sWG"/>
-                            <constraint firstItem="Qes-bW-j3P" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Un5-Gw-7gZ"/>
-                            <constraint firstItem="0Pl-d1-SZk" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="Xiy-Yz-cVL"/>
                             <constraint firstItem="0Pl-d1-SZk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="120" id="aIg-NF-KUu"/>
-                            <constraint firstItem="Qes-bW-j3P" firstAttribute="width" secondItem="M4i-cV-A04" secondAttribute="width" multiplier="0.8" id="r1G-cf-RBU"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bpmLabel" destination="Qes-bW-j3P" id="CI4-pH-tFQ"/>
                         <outlet property="cameraView" destination="F58-Y9-cdv" id="hrO-hT-KI8"/>
+                        <outlet property="changeModeButton" destination="I1z-Z9-YCp" id="yCp-vN-ign"/>
                         <outlet property="colorChartView" destination="M4i-cV-A04" id="ccx-B4-aYG"/>
                         <outlet property="heartBeatView" destination="fU5-7D-SiD" id="DqH-gg-nwc"/>
                     </connections>

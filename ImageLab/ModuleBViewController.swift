@@ -16,20 +16,31 @@ class ModuleBViewController: UIViewController {
     var videoManager:VisionAnalgesic!=nil
     var detector:CIDetector!=nil
     let bridge = OpenCVBridge()
-    var fingerFlashFlag=false;
+    var fingerFlashFlag=false
+    var isFingerMode=true // true means fingermode, false means facemode
+    
+    var DEFAULT_LABEL_TEXT="☝️ Cover your finger on back camera"
+    var CACULATING_LABEL_TEXT="Caculating, keep covering"
+    var FACEING_LABEL_TEXT="Look at front camera"
     
     @IBOutlet weak var bpmLabel: UILabel!
     
     @IBOutlet weak var cameraView: MTKView!
     
     @IBOutlet weak var colorChartView: ColorLineChartView!  // use a custom chart view to show the color value
+    @IBOutlet weak var changeModeButton: UIButton!
     
     @IBOutlet weak var heartBeatView: UIView!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.back)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //setup the OpenCV, video manager, call the block func to detect the finger cover
+        //default setting for the finger set
         self.bridge.loadHaarCascade(withFilename: "nose")
         
         self.videoManager=VisionAnalgesic(view: self.cameraView)
@@ -38,6 +49,45 @@ class ModuleBViewController: UIViewController {
         if !videoManager.isRunning{
             videoManager.start()
         }
+        cameraView.isOpaque=true
+    }
+    
+    
+    
+    @IBAction func changeModeAction(_ sender: Any) {
+        if self.isFingerMode{
+            //change to the facemode
+            bpmLabel.text=FACEING_LABEL_TEXT
+            isFingerMode=false
+            changeModeButton.setTitle("Start Finger Detection Mode", for: .normal)
+            self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.front)
+            // not for finger function below comments
+            // create dictionary for face detection
+            // HINT: you need to manipulate these properties for better face detection efficiency
+            let optsDetector = [CIDetectorAccuracy:CIDetectorAccuracyHigh,
+                          CIDetectorNumberOfAngles:11,
+                          CIDetectorTracking:false] as [String : Any]
+            
+            // setup a face detector in swift
+            self.detector = CIDetector(ofType: CIDetectorTypeFace,
+                                      context: self.videoManager.getCIContext(), // perform on the GPU is possible
+                options: (optsDetector as [String : AnyObject]))
+            self.videoManager.setProcessingBlock(newProcessBlock: processFaceSwift)
+            cameraView.isOpaque=true
+            
+        }else{
+            isFingerMode=true
+            //change to the fingermode
+            changeModeButton.setTitle("Start Face Detection Mode", for: .normal)
+            self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.back)
+            self.videoManager.setProcessingBlock(newProcessBlock: processFinger)
+            cameraView.isOpaque=false
+        }
+        
+        if !videoManager.isRunning{
+            videoManager.start()
+        }
+        
     }
     
     
@@ -51,6 +101,42 @@ class ModuleBViewController: UIViewController {
         //print("here is the count\(self.bridge.redArray.count) and here is the last value\(String(describing: self.bridge.redArray.lastObject))");
       
         return returnImage
+    }
+    
+    //MARK: Process image output
+    func processFaceSwift(inputImage:CIImage) -> CIImage{
+        
+        // detect faces
+        let f = getFaces(img: inputImage)
+        
+        // if no faces, just return original image
+        if f.count == 0 { return inputImage }
+        
+        var retImage = inputImage
+        
+        self.bridge.setImage(retImage,
+                             withBounds: f[0].bounds, // the first face bounds
+                             andContext: self.videoManager.getCIContext())
+        
+        self.bridge.processFinger()
+        retImage = self.bridge.getImageComposite() // get back opencv processed part of the image (overlayed on original)
+        
+        return retImage
+    }
+    
+    //
+    func faceDetect(){
+        
+    }
+    
+    
+    //MARK: Setup Face Detection
+    
+    func getFaces(img:CIImage) -> [CIFaceFeature]{
+        // this ungodly mess makes sure the image is the correct orientation
+        let optsFace = [CIDetectorImageOrientation:self.videoManager.ciOrientation]
+        // get Face Features
+        return self.detector.features(in: img, options: optsFace) as! [CIFaceFeature]
     }
     
     
@@ -71,7 +157,7 @@ class ModuleBViewController: UIViewController {
     func fingerCoverDectect(coveringBoolFlag:Bool){
         // finger cover happen, turn on/off flash, avoid running everytime.
         if self.bridge.coverStatus==1{
-            
+            bpmLabel.text=CACULATING_LABEL_TEXT
             updateColorChart(inputArray: self.bridge.redArray as! [Double],type:0)// when finger is covering the chart show the data update the main color
             findPeakArray(self.bridge.redArray.lastObject as! Double) //call find function
             updateColorChart(inputArray: peaks, type:1)
@@ -86,6 +172,7 @@ class ModuleBViewController: UIViewController {
         }else if self.bridge.coverStatus==2{
               print("something cover rather than finger")
         }else{
+            bpmLabel.text=DEFAULT_LABEL_TEXT
             if self.fingerFlashFlag{
                 self.videoManager.turnOffFlash()
                 self.fingerFlashFlag=false;
@@ -138,7 +225,8 @@ class ModuleBViewController: UIViewController {
             let doubleDataPoints = subArray.map { Double( $0 ) }
             vDSP_meanvD(doubleDataPoints, 1, &movingAverage, vDSP_Length(5))
             print("5 peaks: \(doubleDataPoints)")
-            bpmLabel.text="❤️BPM:\(60000/(movingAverage*19))"
+            let bpmStr=String(format: "%.2f", 60000/(movingAverage*19))
+            bpmLabel.text="❤️BPM:\(bpmStr)"
         }
         
     }
