@@ -37,6 +37,7 @@
 //get the image inside the original bounds
 -(CIImage*)getImageComposite;
 
+-(void)processFaces:(NSArray<CIFaceFeature *>*)faces;
 // call this to perfrom processing (user controlled for better transparency)
 -(void)processImage;
 
