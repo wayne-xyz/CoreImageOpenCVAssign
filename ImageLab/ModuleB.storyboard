@@ -52,18 +52,16 @@
                                     <constraint firstItem="M4i-cV-A04" firstAttribute="width" secondItem="0Pl-d1-SZk" secondAttribute="width" id="xV7-Bj-WHb"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1z-Z9-YCp">
-                                <rect key="frame" x="88" y="136" width="228" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1z-Z9-YCp">
+                                <rect key="frame" x="39.333333333333343" y="136" width="314.33333333333326" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start Face Detection Mode"/>
                                 <connections>
                                     <action selector="changeModeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HY5-0w-fSm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="☝️ Cover your finger on back camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qes-bW-j3P">
-                                <rect key="frame" x="39" y="110" width="314.33333333333326" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="☝️ Cover your finger on back camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qes-bW-j3P">
+                                <rect key="frame" x="39.333333333333343" y="118" width="314.33333333333326" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -74,9 +72,15 @@
                         <constraints>
                             <constraint firstItem="0Pl-d1-SZk" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="2Wd-PR-Wgm"/>
                             <constraint firstItem="0Pl-d1-SZk" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="2xc-5P-BQg"/>
+                            <constraint firstItem="Qes-bW-j3P" firstAttribute="centerX" secondItem="I1z-Z9-YCp" secondAttribute="centerX" id="4SD-bE-VdC"/>
                             <constraint firstItem="0Pl-d1-SZk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="GLM-LI-3Md"/>
                             <constraint firstItem="0Pl-d1-SZk" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="NLd-ZE-sWG"/>
+                            <constraint firstItem="0Pl-d1-SZk" firstAttribute="top" secondItem="I1z-Z9-YCp" secondAttribute="bottom" constant="8" symbolic="YES" id="Oyl-OR-xAa"/>
+                            <constraint firstItem="I1z-Z9-YCp" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="WYp-1y-GXI"/>
                             <constraint firstItem="0Pl-d1-SZk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="120" id="aIg-NF-KUu"/>
+                            <constraint firstItem="Qes-bW-j3P" firstAttribute="width" secondItem="I1z-Z9-YCp" secondAttribute="width" id="kAW-fc-DIt"/>
+                            <constraint firstItem="I1z-Z9-YCp" firstAttribute="top" secondItem="Qes-bW-j3P" secondAttribute="bottom" id="mMi-rA-TWb"/>
+                            <constraint firstItem="I1z-Z9-YCp" firstAttribute="width" secondItem="M4i-cV-A04" secondAttribute="width" multiplier="0.8" id="nkY-bu-GJ1"/>
                         </constraints>
                     </view>
                     <connections>

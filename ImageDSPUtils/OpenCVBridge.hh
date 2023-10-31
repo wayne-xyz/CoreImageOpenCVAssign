@@ -16,6 +16,7 @@
 
 @property (nonatomic) NSInteger processType;
 @property (nonatomic) NSInteger coverStatus; //0means nocover , 1 finger cover ,2 something other than finger
+@property (nonatomic) bool isFingerMode; // true finger mode ,false face mode for the BPM
 
 //MARK: Part 3
 // three array tosave the data

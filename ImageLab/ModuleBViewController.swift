@@ -50,15 +50,17 @@ class ModuleBViewController: UIViewController {
             videoManager.start()
         }
         cameraView.isOpaque=true
+        self.bridge.isFingerMode=true
     }
     
     
-    
+    // change the mode of detect for finger or face
     @IBAction func changeModeAction(_ sender: Any) {
         if self.isFingerMode{
             //change to the facemode
             bpmLabel.text=FACEING_LABEL_TEXT
             isFingerMode=false
+            self.bridge.isFingerMode=false
             changeModeButton.setTitle("Start Finger Detection Mode", for: .normal)
             self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.front)
             // not for finger function below comments
@@ -77,6 +79,7 @@ class ModuleBViewController: UIViewController {
             
         }else{
             isFingerMode=true
+            self.bridge.isFingerMode=true
             //change to the fingermode
             changeModeButton.setTitle("Start Face Detection Mode", for: .normal)
             self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.back)
@@ -103,6 +106,8 @@ class ModuleBViewController: UIViewController {
         return returnImage
     }
     
+    
+    
     //MARK: Process image output
     func processFaceSwift(inputImage:CIImage) -> CIImage{
         
@@ -114,18 +119,38 @@ class ModuleBViewController: UIViewController {
         
         var retImage = inputImage
         
+        // Assuming you want to extract color values from a specific region (e.g., right side of the face)
+        let roiRect = CGRect(x: 100, y: 50, width: 50, height: 50) // Adjust these values for your specific ROI
+        
+        let cgImage = retImage.cropped(to: roiRect)
+        
+        
+        
         self.bridge.setImage(retImage,
                              withBounds: f[0].bounds, // the first face bounds
                              andContext: self.videoManager.getCIContext())
         
         self.bridge.processFinger()
-        retImage = self.bridge.getImageComposite() // get back opencv processed part of the image (overlayed on original)
+        retImage = self.bridge.getImageComposite() // get back opencv processed part qinhof the image (overlayed on original)
         
+    
+       
+        
+        
+        findPeakArray(self.bridge.redArray.lastObject as! Double) //call find function
+        faceDetectUpdateChart(inputArray: peaks)
+        getBPM(beatLengthArray: beatLengths)
         return retImage
     }
     
-    //
-    func faceDetect(){
+    //use uiview update chart and detect the face in same time will not perfom well for GPS ,the UIFPS will be 30
+    // deprecate this function
+    func faceDetectUpdateChart(inputArray:[Double]){
+        if inputArray.count>0 {
+            if  let lastValue=inputArray.last {
+                self.colorChartView.addDataPoint(lastValue)
+            }
+        }
         
     }
     
@@ -216,6 +241,8 @@ class ModuleBViewController: UIViewController {
         }
     }
     
+    // every two frame spend 19ms from nslog
+    // theory value 60fps camera 16ms.
     // this func is to get the BPM from the peak distance array
     func getBPM(beatLengthArray:[Int]){
         if beatLengthArray.count>20{ //when the array is stable
@@ -230,8 +257,7 @@ class ModuleBViewController: UIViewController {
         }
         
     }
-    // every two frame spend 19ms from nslog
-    // theory value 60fps camera 16ms.
+
     
     
     
