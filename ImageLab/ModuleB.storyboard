@@ -67,6 +67,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bpmLabel" destination="Qes-bW-j3P" id="CI4-pH-tFQ"/>
                         <outlet property="cameraView" destination="F58-Y9-cdv" id="hrO-hT-KI8"/>
                         <outlet property="colorChartView" destination="M4i-cV-A04" id="ccx-B4-aYG"/>
                         <outlet property="heartBeatView" destination="fU5-7D-SiD" id="DqH-gg-nwc"/>
