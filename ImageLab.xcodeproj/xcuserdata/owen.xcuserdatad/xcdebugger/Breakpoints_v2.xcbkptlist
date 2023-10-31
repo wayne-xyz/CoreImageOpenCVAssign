@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "372A36B5-1752-4C80-A314-50A264D510B9"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AA7BAEC9-36BC-4CB7-BDC0-8278806FDF82"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ImageLab/ModuleAViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "switchCamera(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "62AD6F8E-2147-4F7E-BD75-404678268F46"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ImageDSPUtils/OpenCVBridge.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "-processImage"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5F5CFA9-57AD-4945-8583-2DDCCBEE5A30"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ImageDSPUtils/OpenCVBridge.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "-processImage"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ImageDSPUtils/OpenCVBridge.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "430"
+            endingLineNumber = "430"
+            landmarkName = "-processImage"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb75d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb75d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "1160">
+               </Location>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb75d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "1616">
+               </Location>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb75d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "2096">
+               </Location>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb75d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "2780">
+               </Location>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb75d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "3424">
+               </Location>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb75d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "4180">
+               </Location>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb75d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "4772">
+               </Location>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb73a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "430"
+                  endingLineNumber = "430"
+                  offsetFromSymbolStart = "4844">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9BB79EF2-420B-4268-A88A-52BDDD816E82"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ImageDSPUtils/OpenCVBridge.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-processFaces:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9BB79EF2-420B-4268-A88A-52BDDD816E82 - 7afc6e5c394e8a7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processFaces:]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "9BB79EF2-420B-4268-A88A-52BDDD816E82 - 7afc6e5c394e8da3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processFaces:]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "191"
+                  endingLineNumber = "191"
+                  offsetFromSymbolStart = "1764">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "736DCD1E-BE5D-494A-9217-6826687D350E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ImageDSPUtils/OpenCVBridge.mm"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "-processFaces:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

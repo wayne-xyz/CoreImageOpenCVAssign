@@ -23,6 +23,8 @@ using namespace cv;
 @implementation OpenCVBridge
 
 
+bool _blinkBuffer[10] = {false};
+int _blinkBuffIdx = 0;
 
 #pragma mark ===Write Your Code Here===
 // you can define your own functions here for processing the image
@@ -126,6 +128,74 @@ using namespace cv;
     _blueArray=[NSMutableArray arrayWithCapacity:100];
 }
 
+
+-(void)processFaces:(NSArray<CIFaceFeature *>*)faces{
+    Scalar color = {0,255,0,0}; // Green color
+    auto thikness = 10;
+    auto img_height = _image.rows; //for point conversion
+    
+    double angle = 0.0;
+    bool hasAngle = false;
+    bool hasSmile = false;
+    bool blinking = false;
+    char info[100] = {0};
+    
+    for (CIFaceFeature* f : faces){
+        // draw bbox
+        auto rect = f.bounds;
+        auto left = rect.origin.x;
+        auto right = left + rect.size.width;
+        
+        // convert point from bottomleft to topleft
+        auto bottom = img_height - rect.origin.y;
+        auto top = bottom - rect.size.height;
+        cv::rectangle(_image, cv::Point(left, top), cv::Point(right, bottom), color, thikness);
+        
+        // draw eyes
+        if(f.hasLeftEyePosition && f.hasRightEyePosition){
+            auto leftEyePos = f.leftEyePosition;
+            auto rightEyePos = f.rightEyePosition;
+            cv::circle(_image, cv::Point(leftEyePos.x, img_height - leftEyePos.y), thikness, color, thikness);
+            cv::circle(_image, cv::Point(rightEyePos.x, img_height - rightEyePos.y), thikness, color, thikness);
+        }
+        
+        // draw mouth
+        if(f.hasMouthPosition){
+            auto mouthpos = f.mouthPosition;
+            cv::circle(_image, cv::Point(mouthpos.x, img_height - mouthpos.y), thikness, color, thikness);
+        }
+        
+        
+        // store attributes
+        if(!hasAngle && f.hasFaceAngle){
+            hasAngle = true;
+            angle = f.faceAngle;
+            hasSmile = f.hasSmile;
+            if(f.leftEyeClosed == f.rightEyeClosed && f.leftEyeClosed){
+                _blinkBuffer[_blinkBuffIdx % 10] = true;
+            }else{
+                _blinkBuffer[_blinkBuffIdx % 10] = false;
+            }
+            _blinkBuffIdx += 1;
+        }
+    }
+    
+    // caculate blinking status
+    int blinkSum = 0;
+    for(int i = 0; i< 10; ++i){
+        blinkSum += _blinkBuffer[i] ? 1 : 0;
+    }
+    blinking = blinkSum >= 3 && blinkSum <= 7 ? true : false;
+    
+    // display the attributes
+    if(hasAngle){
+        sprintf(info, "Angle: %.2f, Smile: %s, Blinking: %s", angle, hasSmile ? "True":"False", blinking ? "True":"False");
+    }else{
+        sprintf(info, "Angle: N/A, Smile: %s, Blinking: %s", angle, hasSmile ? "True":"False", blinking ? "True":"False");
+    }
+    cv::putText(_image, info, cv::Point(10,50), FONT_HERSHEY_PLAIN, 3, color, 3);
+    
+}
 
 
 #pragma mark Define Custom Functions Here

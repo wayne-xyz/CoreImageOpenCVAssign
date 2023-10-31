@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ymo-hf-fnl">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,6 +32,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="-2"/>
+        </scene>
+        <!--MouduleA View Controller-->
+        <scene sceneID="FrT-od-6es">
+            <objects>
+                <viewController id="ymo-hf-fnl" customClass="MouduleAViewController" customModule="ImageLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fK2-QW-CLI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vfo-br-y38"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ccU-FM-PEx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phG-E5-EeM">
+                                <rect key="frame" x="274" y="753" width="104" height="30"/>
+                                <state key="normal" title="Toggle Camera"/>
+                                <connections>
+                                    <action selector="switchCamera:" destination="ymo-hf-fnl" eventType="touchUpInside" id="DUd-MR-bek"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Saq-dA-gKU">
+                                <rect key="frame" x="15" y="753" width="87" height="30"/>
+                                <state key="normal" title="Toggle Flash"/>
+                            </button>
+                            <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="DKm-CO-Gc5">
+                                <rect key="frame" x="0.0" y="59" width="393" height="664"/>
+                                <gestureRecognizers/>
+                            </mtkView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ekH-hW-oH0"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="ekH-hW-oH0" firstAttribute="bottom" secondItem="Saq-dA-gKU" secondAttribute="bottom" constant="35" id="5uS-Mq-X5b"/>
+                            <constraint firstItem="phG-E5-EeM" firstAttribute="top" secondItem="DKm-CO-Gc5" secondAttribute="bottom" constant="30" id="BkI-52-6fj"/>
+                            <constraint firstItem="DKm-CO-Gc5" firstAttribute="top" secondItem="fK2-QW-CLI" secondAttribute="bottom" id="Jpu-6O-zyf"/>
+                            <constraint firstAttribute="trailing" secondItem="DKm-CO-Gc5" secondAttribute="trailing" id="Pag-x5-3ib"/>
+                            <constraint firstItem="Saq-dA-gKU" firstAttribute="top" secondItem="DKm-CO-Gc5" secondAttribute="bottom" constant="30" id="as3-hv-HpZ"/>
+                            <constraint firstItem="Saq-dA-gKU" firstAttribute="leading" secondItem="ekH-hW-oH0" secondAttribute="leading" constant="15" id="eIz-5T-pKC"/>
+                            <constraint firstItem="ekH-hW-oH0" firstAttribute="trailing" secondItem="phG-E5-EeM" secondAttribute="trailing" constant="15" id="eRh-Sm-a79"/>
+                            <constraint firstItem="DKm-CO-Gc5" firstAttribute="leading" secondItem="ccU-FM-PEx" secondAttribute="leading" id="msA-iY-1tx"/>
+                            <constraint firstItem="ekH-hW-oH0" firstAttribute="bottom" secondItem="phG-E5-EeM" secondAttribute="bottom" constant="35" id="v9z-ua-ZxK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraView" destination="DKm-CO-Gc5" id="2ca-ji-O48"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cxs-DA-6na" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1074" y="437"/>
         </scene>
     </scenes>
     <resources>
