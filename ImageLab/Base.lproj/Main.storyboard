@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JDa-0g-hSd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JDa-0g-hSd">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -97,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="-2423" y="383"/>
         </scene>
-        <!--ModuleAVC-->
+        <!--ModuleA-->
         <scene sceneID="aap-yv-dl8">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SegueToModuleA" storyboardName="ModuleA" referencedIdentifier="ModuleAVC" id="2f4-PH-FpD" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="SegueToModuleA" storyboardName="ModuleA" id="2f4-PH-FpD" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="NKL-m0-kQC"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lAf-8t-Gj2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
