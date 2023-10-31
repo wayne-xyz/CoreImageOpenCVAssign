@@ -5,34 +5,9 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="s0d-6b-0kx">
-            <objects>
-                <viewController storyboardIdentifier="ModuleAVC" id="Y6W-OH-hqX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tr-b6-Wb4">
-                                <rect key="frame" x="132" y="306" width="46" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="139" y="-2"/>
-        </scene>
         <!--MouduleA View Controller-->
         <scene sceneID="FrT-od-6es">
             <objects>
@@ -46,18 +21,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phG-E5-EeM">
-                                <rect key="frame" x="274" y="753" width="104" height="30"/>
+                                <rect key="frame" x="274" y="768" width="104" height="30"/>
                                 <state key="normal" title="Toggle Camera"/>
                                 <connections>
                                     <action selector="switchCamera:" destination="ymo-hf-fnl" eventType="touchUpInside" id="DUd-MR-bek"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Saq-dA-gKU">
-                                <rect key="frame" x="15" y="753" width="87" height="30"/>
+                                <rect key="frame" x="15" y="768" width="87" height="30"/>
                                 <state key="normal" title="Toggle Flash"/>
                             </button>
                             <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="DKm-CO-Gc5">
-                                <rect key="frame" x="0.0" y="59" width="393" height="664"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="689"/>
                                 <gestureRecognizers/>
                             </mtkView>
                         </subviews>
@@ -65,15 +40,15 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="ekH-hW-oH0" firstAttribute="bottom" secondItem="Saq-dA-gKU" secondAttribute="bottom" constant="35" id="5uS-Mq-X5b"/>
-                            <constraint firstItem="phG-E5-EeM" firstAttribute="top" secondItem="DKm-CO-Gc5" secondAttribute="bottom" constant="30" id="BkI-52-6fj"/>
+                            <constraint firstItem="ekH-hW-oH0" firstAttribute="bottom" secondItem="Saq-dA-gKU" secondAttribute="bottom" constant="20" id="5uS-Mq-X5b"/>
+                            <constraint firstItem="phG-E5-EeM" firstAttribute="top" secondItem="DKm-CO-Gc5" secondAttribute="bottom" constant="20" id="BkI-52-6fj"/>
                             <constraint firstItem="DKm-CO-Gc5" firstAttribute="top" secondItem="fK2-QW-CLI" secondAttribute="bottom" id="Jpu-6O-zyf"/>
                             <constraint firstAttribute="trailing" secondItem="DKm-CO-Gc5" secondAttribute="trailing" id="Pag-x5-3ib"/>
-                            <constraint firstItem="Saq-dA-gKU" firstAttribute="top" secondItem="DKm-CO-Gc5" secondAttribute="bottom" constant="30" id="as3-hv-HpZ"/>
+                            <constraint firstItem="Saq-dA-gKU" firstAttribute="top" secondItem="DKm-CO-Gc5" secondAttribute="bottom" constant="20" id="as3-hv-HpZ"/>
                             <constraint firstItem="Saq-dA-gKU" firstAttribute="leading" secondItem="ekH-hW-oH0" secondAttribute="leading" constant="15" id="eIz-5T-pKC"/>
                             <constraint firstItem="ekH-hW-oH0" firstAttribute="trailing" secondItem="phG-E5-EeM" secondAttribute="trailing" constant="15" id="eRh-Sm-a79"/>
                             <constraint firstItem="DKm-CO-Gc5" firstAttribute="leading" secondItem="ccU-FM-PEx" secondAttribute="leading" id="msA-iY-1tx"/>
-                            <constraint firstItem="ekH-hW-oH0" firstAttribute="bottom" secondItem="phG-E5-EeM" secondAttribute="bottom" constant="35" id="v9z-ua-ZxK"/>
+                            <constraint firstItem="ekH-hW-oH0" firstAttribute="bottom" secondItem="phG-E5-EeM" secondAttribute="bottom" constant="20" id="v9z-ua-ZxK"/>
                         </constraints>
                     </view>
                     <connections>
@@ -85,9 +60,4 @@
             <point key="canvasLocation" x="1074" y="437"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

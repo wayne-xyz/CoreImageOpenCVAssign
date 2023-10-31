@@ -50,6 +50,38 @@
             endingLineNumber = "426"
             landmarkName = "-processImage"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb7d9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "427"
+                  endingLineNumber = "427"
+                  offsetFromSymbolStart = "4824">
+               </Location>
+               <Location
+                  uuid = "FD05546F-6EA7-4D53-820B-9D0B9D8F5C72 - 111ead624b9cb7b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[OpenCVBridge processImage]"
+                  moduleName = "ImageLab"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/owen/Projects/CoreImageOpenCVAssign/ImageDSPUtils/OpenCVBridge.mm"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "426"
+                  endingLineNumber = "426"
+                  offsetFromSymbolStart = "4844">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

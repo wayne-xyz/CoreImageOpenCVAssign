@@ -22,10 +22,10 @@ class MouduleAViewController: UIViewController   {
     //MARK: ViewController Hierarchy
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = nil
         self.videoManager = VisionAnalgesic(view: self.cameraView)
         self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.front)
         self.faceDetector = FaceDetectionModel(videoManager: self.videoManager)
+        //self.view.backgroundColor = nil
     }
     
     //MARK: Convenience Methods for UI Flash and Camera Toggle
