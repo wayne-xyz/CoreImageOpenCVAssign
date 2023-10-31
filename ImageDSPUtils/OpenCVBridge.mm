@@ -165,8 +165,7 @@ int _blinkBuffIdx = 0;
             cv::circle(_image, cv::Point(mouthpos.x, img_height - mouthpos.y), thikness, color, thikness);
         }
         
-        
-        // store attributes
+        // store attributes for the first face that hasFaceAngle == true
         if(!hasAngle && f.hasFaceAngle){
             hasAngle = true;
             angle = f.faceAngle;
@@ -204,9 +203,6 @@ int _blinkBuffIdx = 0;
     cv::Mat frame_gray,image_copy;
     const int kCannyLowThreshold = 150;
     const int kFilterKernelSize = 5;
-    
-    
-    
     
     switch (self.processType) {
         case 1:
