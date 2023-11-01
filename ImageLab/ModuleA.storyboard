@@ -30,8 +30,11 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Saq-dA-gKU">
                                 <rect key="frame" x="15" y="768" width="87" height="30"/>
                                 <state key="normal" title="Toggle Flash"/>
+                                <connections>
+                                    <action selector="flash:" destination="ymo-hf-fnl" eventType="touchUpInside" id="JkT-42-ms1"/>
+                                </connections>
                             </button>
-                            <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="DKm-CO-Gc5">
+                            <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Stencil8" preferredFramesPerSecond="1" paused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DKm-CO-Gc5">
                                 <rect key="frame" x="0.0" y="59" width="393" height="689"/>
                                 <gestureRecognizers/>
                             </mtkView>
