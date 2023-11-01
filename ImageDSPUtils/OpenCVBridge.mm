@@ -26,9 +26,6 @@ using namespace cv;
 bool _blinkBuffer[10] = {false};
 int _blinkBuffIdx = 0;
 
-#pragma mark ===Write Your Code Here===
-// you can define your own functions here for processing the image
-// MARK: Part one creat a public function
 // this is the implementation of processFinger
 -(bool)processFinger{
     
@@ -78,6 +75,18 @@ int _blinkBuffIdx = 0;
         [_redArray addObject:@(avgPixelIntensity.val[0])];
         [_blueArray addObject:@(avgPixelIntensity.val[1])];
         [_greenArray addObject:@(avgPixelIntensity.val[2])];
+        
+        Scalar color = {0,255,0,0}; // Green color
+        auto thikness = 10;
+        // draw bbox
+        auto rect = _bounds;
+        auto left = rect.origin.x;
+        auto right = left + rect.size.width;
+        
+        // convert point from bottomleft to topleft
+        auto bottom = _image.rows - rect.origin.y;
+        auto top = bottom - rect.size.height;
+        cv::rectangle(_image, cv::Point(left, top), cv::Point(right, bottom), color, thikness);
         
 //        // Create a Mat for the chart with the same number of channels as _image
 //        cv::Mat chart(200, static_cast<int>(_redArray.count), _image.type(), cv::Scalar(255, 255, 255));// use 200 for height

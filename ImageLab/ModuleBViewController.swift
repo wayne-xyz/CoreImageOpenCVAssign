@@ -30,7 +30,7 @@ class ModuleBViewController: UIViewController {
     @IBOutlet weak var colorChartView: ColorLineChartView!  // use a custom chart view to show the color value
     @IBOutlet weak var changeModeButton: UIButton!
     
-    @IBOutlet weak var heartBeatView: UIView!
+    @IBOutlet weak var heartBeatView: ColorLineChartView!
     
     override func viewDidAppear(_ animated: Bool) {
         self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.back)
@@ -119,23 +119,12 @@ class ModuleBViewController: UIViewController {
         
         var retImage = inputImage
         
-        // Assuming you want to extract color values from a specific region (e.g., right side of the face)
-        let roiRect = CGRect(x: 100, y: 50, width: 50, height: 50) // Adjust these values for your specific ROI
-        
-        let cgImage = retImage.cropped(to: roiRect)
-        
-        
-        
         self.bridge.setImage(retImage,
                              withBounds: f[0].bounds, // the first face bounds
                              andContext: self.videoManager.getCIContext())
         
         self.bridge.processFinger()
         retImage = self.bridge.getImageComposite() // get back opencv processed part qinhof the image (overlayed on original)
-        
-    
-       
-        
         
         findPeakArray(self.bridge.redArray.lastObject as! Double) //call find function
         faceDetectUpdateChart(inputArray: peaks)
@@ -148,7 +137,7 @@ class ModuleBViewController: UIViewController {
     func faceDetectUpdateChart(inputArray:[Double]){
         if inputArray.count>0 {
             if  let lastValue=inputArray.last {
-                self.colorChartView.addDataPoint(lastValue)
+                self.colorChartView.addDataPoint(lastValue, istype1: true)
             }
         }
         
@@ -169,9 +158,10 @@ class ModuleBViewController: UIViewController {
     func updateColorChart(inputArray: [Double] , type:Int){ //type 0 for main color , 1 for the peak
         if inputArray.count>0 {
             if type==0, let lastValue=inputArray.last {
-                self.colorChartView.addDataPoint(lastValue)
+                self.colorChartView.addDataPoint(lastValue,istype1: true)
+                self.heartBeatView.addDataPoint(lastValue, istype1: false)
             }else if type==1, let lastVaule=inputArray.last{
-                self.colorChartView.addPeakPoint(dataP: lastVaule)
+                self.colorChartView.addPeakPoint(dataP: lastVaule,istype1: true)
             }
         }
     }
@@ -186,6 +176,8 @@ class ModuleBViewController: UIViewController {
             updateColorChart(inputArray: self.bridge.redArray as! [Double],type:0)// when finger is covering the chart show the data update the main color
             findPeakArray(self.bridge.redArray.lastObject as! Double) //call find function
             updateColorChart(inputArray: peaks, type:1)
+            
+            
             getBPM(beatLengthArray: beatLengths)
             
             if(self.fingerFlashFlag==false){ // this is for the flash
@@ -211,7 +203,7 @@ class ModuleBViewController: UIViewController {
     private var currentWindow: [Double] = []
     var peaks: [Double] = []
     private var currentIndex = 0
-    private var lastPeakindex = -1
+    private var lastPeakindex = 0
     private var beatLengths:[Int]=[] // array for each peak distance
     
     // this function is to find the peaks and save them in peaks array
@@ -222,23 +214,29 @@ class ModuleBViewController: UIViewController {
             currentWindow.removeFirst()
         }
         currentIndex+=1
+        peaks.append(0)
         
         if currentIndex>=windowSize{
             if let peak = currentWindow.max() ,  peak == currentWindow[windowSize/2] {
                 if currentIndex - lastPeakindex > 20{
                     beatLengths.append(currentIndex-lastPeakindex) // save the beat length for caculate the BPM
-                    
+//                    for _ in lastPeakindex...currentIndex{
+//                        peaks.append(0.0)
+//                    }
                     peaks.append(peak) // this is the peak and in the middel of the period
+                    
                     lastPeakindex=currentIndex
                 }else{
-                    peaks.append(0)
+                    //peaks.append(0)
                 }
             }else{
-                peaks.append(0)
+                //peaks.append(0)
             }
         }else{
-            peaks.append(0)
+            //peaks.append(0)
         }
+        // 0 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0 1 0 0 0
+        // 0 0
     }
     
     // every two frame spend 19ms from nslog
