@@ -30,15 +30,13 @@ class MouduleAViewController: UIViewController   {
     
     //MARK: Convenience Methods for UI Flash and Camera Toggle
     @IBAction func flash(_ sender: AnyObject) {
-        if(self.videoManager.toggleFlash()){
-            self.videoManager.turnOnFlashwithLevel(1.0)
-        }
-        else{
-           self.videoManager.turnOffFlash()
-        }
+        self.videoManager.toggleFlash()
     }
     
     @IBAction func switchCamera(_ sender: AnyObject) {
         self.videoManager.toggleCameraPosition()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.videoManager.shutdown()
     }
 }
