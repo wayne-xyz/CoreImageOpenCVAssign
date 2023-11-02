@@ -175,7 +175,7 @@ class ModuleBViewController: UIViewController {
             bpmLabel.text=CACULATING_LABEL_TEXT
             updateColorChart(inputArray: self.bridge.redArray as! [Double],type:0)// when finger is covering the chart show the data update the main color
             findPeakArray(self.bridge.redArray.lastObject as! Double) //call find function
-            updateColorChart(inputArray: peaks, type:1)
+           // updateColorChart(inputArray: peaks, type:1)
             
             
             getBPM(beatLengthArray: beatLengths)
