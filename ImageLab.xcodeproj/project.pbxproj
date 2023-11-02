@@ -22,6 +22,8 @@
 		CC4AE3EB2AEB75D800E7973E /* ModuleA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC4AE3EA2AEB75D800E7973E /* ModuleA.storyboard */; };
 		CC4AE3ED2AEB75F800E7973E /* ModuleB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC4AE3EC2AEB75F800E7973E /* ModuleB.storyboard */; };
 		CC4AE3EF2AEB765A00E7973E /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4AE3EE2AEB765A00E7973E /* EntranceViewController.swift */; };
+		CCFD629A2AEEEE3800F2E4C7 /* ModuleBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFD62992AEEEE3800F2E4C7 /* ModuleBViewController.swift */; };
+		CCFD629C2AEF2F5700F2E4C7 /* ColorLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFD629B2AEF2F5700F2E4C7 /* ColorLineChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		CC4AE3EA2AEB75D800E7973E /* ModuleA.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ModuleA.storyboard; sourceTree = "<group>"; };
 		CC4AE3EC2AEB75F800E7973E /* ModuleB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ModuleB.storyboard; sourceTree = "<group>"; };
 		CC4AE3EE2AEB765A00E7973E /* EntranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
+		CCFD62992AEEEE3800F2E4C7 /* ModuleBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBViewController.swift; sourceTree = "<group>"; };
+		CCFD629B2AEF2F5700F2E4C7 /* ColorLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLineChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				5AD97FDB2AF18C1800380721 /* FaceDetectionModel.swift */,
 				CC4AE3EA2AEB75D800E7973E /* ModuleA.storyboard */,
 				CC4AE3EC2AEB75F800E7973E /* ModuleB.storyboard */,
+				CCFD62992AEEEE3800F2E4C7 /* ModuleBViewController.swift */,
+				CCFD629B2AEF2F5700F2E4C7 /* ColorLineChartView.swift */,
 				B650B31E1D8340F0000114A1 /* Main.storyboard */,
 				CC4AE3EE2AEB765A00E7973E /* EntranceViewController.swift */,
 				B650B3211D8340F0000114A1 /* Assets.xcassets */,
@@ -190,6 +196,8 @@
 			files = (
 				5AD97FDA2AEF347400380721 /* ModuleAViewController.swift in Sources */,
 				B650B31D1D8340F0000114A1 /* ViewController.swift in Sources */,
+				CCFD629C2AEF2F5700F2E4C7 /* ColorLineChartView.swift in Sources */,
+				CCFD629A2AEEEE3800F2E4C7 /* ModuleBViewController.swift in Sources */,
 				B650B31B1D8340F0000114A1 /* AppDelegate.swift in Sources */,
 				B67B72BB1D996ADE008EDDE1 /* OpenCVBridge.mm in Sources */,
 				5AD97FDC2AF18C1800380721 /* FaceDetectionModel.swift in Sources */,
